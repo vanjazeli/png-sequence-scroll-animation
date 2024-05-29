@@ -1,8 +1,12 @@
+import gsap from 'gsap';
+
 const pngSequence = {
 	animationBlock: document.querySelector('.js-scrollbox-animation'),
 	frames: document.querySelectorAll('.js-scrollbox-frame'),
 
-	offset: 200,
+	currentFrame: { value: 0 },
+
+	offset: 0,
 
 	init: function () {
 		this.initialSetup();
@@ -30,12 +34,17 @@ const pngSequence = {
 				const rangePx = scrollBottom - scrollTop;
 				const currPositionPercent = (currentScroll - scrollTop) / rangePx;
 
-				const currentFrame = Math.round(currPositionPercent * 90);
+				const nextFrame = Math.round(currPositionPercent * 90);
 
-				this.frames.forEach((frame) => {
-					frame.style.display = 'none';
+				gsap.to(this.currentFrame, {
+					value: nextFrame,
+					onUpdate: () => {
+						this.frames.forEach((frame) => {
+							frame.style.display = 'none';
+						});
+						this.frames[Math.round(this.currentFrame.value)].style.display = 'inline';
+					},
 				});
-				this.frames[currentFrame].style.display = 'inline';
 			}
 		});
 	},
