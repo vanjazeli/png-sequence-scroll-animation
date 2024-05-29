@@ -2,6 +2,8 @@ const pngSequence = {
 	animationBlock: document.querySelector('.js-scrollbox-animation'),
 	frames: document.querySelectorAll('.js-scrollbox-frame'),
 
+	offset: 200,
+
 	init: function () {
 		this.initialSetup();
 		this.detectScroll();
@@ -28,7 +30,7 @@ const pngSequence = {
 				const rangePx = scrollBottom - scrollTop;
 				const currPositionPercent = (currentScroll - scrollTop) / rangePx;
 
-				const currentFrame = Math.round(currPositionPercent * 91);
+				const currentFrame = Math.round(currPositionPercent * 90);
 
 				this.frames.forEach((frame) => {
 					frame.style.display = 'none';
