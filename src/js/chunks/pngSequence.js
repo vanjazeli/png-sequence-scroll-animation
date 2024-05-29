@@ -9,12 +9,25 @@ const pngSequence = {
 	offset: 0,
 
 	init: function () {
+		this.imagePreload();
 		this.initialSetup();
 		this.detectScroll();
 	},
 
 	initialSetup: function () {
 		this.frames[0].style.display = 'inline';
+	},
+
+	imagePreload: function () {
+		const preloadImages = [];
+
+		console.dir(this.frames[0]);
+		this.frames.forEach((frame) => {
+			const image = new Image();
+			image.src = frame.src;
+
+			preloadImages.push(image);
+		});
 	},
 
 	detectScroll: function () {
