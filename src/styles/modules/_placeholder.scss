@@ -6,6 +6,7 @@
 	height: 100vh;
 	background-color: $gray-100;
 	@include flex-c-c;
+	padding: 0 20px;
 }
 
 .placeholder--darker {
