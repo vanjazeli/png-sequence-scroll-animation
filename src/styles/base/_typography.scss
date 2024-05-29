@@ -1,3 +1,11 @@
 // ========================================
 // typography
 // ========================================
+
+.h1 {
+	font-size: 68px;
+
+	@include media-breakpoint-down(lg) {
+		font-size: 36px;
+	}
+}

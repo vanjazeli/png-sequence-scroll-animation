@@ -1,0 +1,13 @@
+// ========================================
+// place-holder
+// ========================================
+
+.placeholder {
+	height: 100vh;
+	background-color: $gray-100;
+	@include flex-c-c;
+}
+
+.placeholder--darker {
+	background-color: $gray-200;
+}
