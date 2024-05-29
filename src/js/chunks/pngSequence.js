@@ -1,5 +1,5 @@
 const pngSequence = {
-	module: document.querySelector('.js-scrollbox'),
+	animationBlock: document.querySelector('.js-scrollbox-animation'),
 	frames: document.querySelectorAll('.js-scrollbox-frame'),
 
 	init: function () {
@@ -12,20 +12,28 @@ const pngSequence = {
 	},
 
 	detectScroll: function () {
-		window.addEventListener('scroll', (e) => {
-			const rect = this.module.getBoundingClientRect();
-			const scrollTop = document.documentElement.scrollTop - window.innerHeight;
-			const elementTop = rect.top + scrollTop;
+		window.addEventListener('scroll', () => {
+			const rect = this.animationBlock.getBoundingClientRect();
+			const rectTop = document.documentElement.scrollTop - window.innerHeight;
+			const scrollTop = rect.top + rectTop;
 
-			const moduleHeight = this.module.offsetHeight;
+			const animationBlockHeight = this.animationBlock.offsetHeight;
 
-			const scrollBottom = elementTop + moduleHeight + window.innerHeight;
+			const scrollBottom = scrollTop + animationBlockHeight + window.innerHeight;
 			const currentScroll = window.scrollY;
 
-			if (currentScroll >= elementTop && currentScroll <= scrollBottom) {
-				console.log(true);
-			} else {
-				console.log(false);
+			const isInViewport = currentScroll >= scrollTop && currentScroll <= scrollBottom;
+
+			if (isInViewport) {
+				const rangePx = scrollBottom - scrollTop;
+				const currPositionPercent = (currentScroll - scrollTop) / rangePx;
+
+				const currentFrame = Math.round(currPositionPercent * 91);
+
+				this.frames.forEach((frame) => {
+					frame.style.display = 'none';
+				});
+				this.frames[currentFrame].style.display = 'inline';
 			}
 		});
 	},
