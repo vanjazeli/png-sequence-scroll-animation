@@ -17,7 +17,7 @@ const pngSequence = {
 		window.addEventListener('scroll', () => {
 			const rect = this.animationBlock.getBoundingClientRect();
 			const rectTop = document.documentElement.scrollTop - window.innerHeight;
-			const scrollTop = rect.top + rectTop;
+			const scrollTop = rect.top + rectTop + this.offset;
 
 			const animationBlockHeight = this.animationBlock.offsetHeight;
 
