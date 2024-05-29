@@ -6,3 +6,23 @@
 	height: 100vh;
 	background-color: $gray-300;
 }
+
+.scrollbox__wrap {
+	height: 100%;
+	display: grid;
+	align-items: center;
+}
+
+.scrollbox__image-holder {
+	position: relative;
+	aspect-ratio: 2560 / 1440;
+}
+
+.scrollbox__image {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	display: none;
+}
