@@ -21,7 +21,6 @@ const pngSequence = {
 	imagePreload: function () {
 		const preloadImages = [];
 
-		console.dir(this.frames[0]);
 		this.frames.forEach((frame) => {
 			const image = new Image();
 			image.src = frame.src;
