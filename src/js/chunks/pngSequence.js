@@ -15,18 +15,7 @@ const pngSequence = {
 	},
 
 	initialSetup: function () {
-		this.frames[0].style.display = 'inline';
-	},
-
-	imagePreload: function () {
-		const preloadImages = [];
-
-		this.frames.forEach((frame) => {
-			const image = new Image();
-			image.src = frame.src;
-
-			preloadImages.push(image);
-		});
+		this.frames[0].style.opacity = '1';
 	},
 
 	detectScroll: function () {
@@ -52,9 +41,9 @@ const pngSequence = {
 					value: nextFrame,
 					onUpdate: () => {
 						this.frames.forEach((frame) => {
-							frame.style.display = 'none';
+							frame.style.opacity = '0';
 						});
-						this.frames[Math.round(this.currentFrame.value)].style.display = 'inline';
+						this.frames[Math.round(this.currentFrame.value)].style.opacity = '1';
 					},
 				});
 			}
