@@ -9,7 +9,6 @@ const pngSequence = {
 	offset: 0,
 
 	init: function () {
-		this.imagePreload();
 		this.initialSetup();
 		this.detectScroll();
 	},
