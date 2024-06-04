@@ -1,15 +1,14 @@
 import gsap from 'gsap';
 
 const pngSequence = {
-	animationBlock: document.querySelector('.js-scrollbox-animation'),
-	frames: document.querySelectorAll('.js-scrollbox-frame'),
+	animationBlock: document.querySelector('.js-relative-scrollbox-animation'),
+	frames: document.querySelectorAll('.js-relative-scrollbox-frame'),
 
 	currentFrame: { value: 0 },
 
 	offset: 0,
 
 	init: function () {
-		this.imagePreload();
 		this.initialSetup();
 		this.detectScroll();
 	},

@@ -1,24 +1,24 @@
 // ========================================
-// scrollbox
+// relative-scrollbox
 // ========================================
 
-.scrollbox {
+.relative-scrollbox {
 	height: 100vh;
 	background-color: $gray-300;
 }
 
-.scrollbox__wrap {
+.relative-scrollbox__wrap {
 	height: 100%;
 	display: grid;
 	align-items: center;
 }
 
-.scrollbox__image-holder {
+.relative-scrollbox__image-holder {
 	position: relative;
 	aspect-ratio: 2560 / 1440;
 }
 
-.scrollbox__image {
+.relative-scrollbox__image {
 	position: absolute;
 	height: 100%;
 	top: 0;
