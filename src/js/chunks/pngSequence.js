@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 
 const pngSequence = {
-	animationBlock: document.querySelector('.js-relative-scrollbox-animation'),
-	frames: document.querySelectorAll('.js-relative-scrollbox-frame'),
+	animationBlock: document.querySelector('.js-scrollbox-animation'),
+	frames: document.querySelectorAll('.js-scrollbox-frame'),
 
 	currentFrame: { value: 0 },
 
@@ -14,7 +14,10 @@ const pngSequence = {
 	},
 
 	initialSetup: function () {
-		this.frames[0].style.opacity = '1';
+		this.frames.forEach((frame) => {
+			frame.style.visibility = 'hidden';
+		});
+		this.frames[0].style.visibility = 'visible';
 	},
 
 	detectScroll: function () {
@@ -40,9 +43,9 @@ const pngSequence = {
 					value: nextFrame,
 					onUpdate: () => {
 						this.frames.forEach((frame) => {
-							frame.style.opacity = '0';
+							frame.style.visibility = 'hidden';
 						});
-						this.frames[Math.round(this.currentFrame.value)].style.opacity = '1';
+						this.frames[Math.round(this.currentFrame.value)].style.visibility = 'visible';
 					},
 				});
 			}
